@@ -1,5 +1,7 @@
 package main
 
+//komen untuk tugas
+
 import (
 	"fmt"
 	"sort"
@@ -7,9 +9,9 @@ import (
 )
 
 type Calon struct {
-	Nama     string
-	Partai   string
-	Suara    int
+	Nama   string
+	Partai string
+	Suara  int
 }
 
 type Pemilih struct {
@@ -42,10 +44,10 @@ func menu() {
 		fmt.Println("10. Cari Data Calon")
 		fmt.Println("99. Keluar")
 		fmt.Print("Pilih opsi: ")
-		
+
 		var choice int
 		fmt.Scan(&choice)
-		
+
 		switch choice {
 		case 1:
 			tambahCalon()
@@ -180,7 +182,6 @@ func pilihCalon() {
 	fmt.Println("Calon tidak ditemukan.")
 }
 
-
 var pemilihSudahMemilih = make(map[string]bool)
 
 func sudahMemilih(nama string) bool {
@@ -190,7 +191,6 @@ func sudahMemilih(nama string) bool {
 func tandaiSudahMemilih(nama string) {
 	pemilihSudahMemilih[nama] = true
 }
-
 
 func isPemilihValid(nama string) bool {
 	for _, pemilih := range pemilihs {
@@ -221,7 +221,7 @@ func cariDataCalon() {
 	fmt.Scan(&partai)
 	fmt.Print("Masukkan nama calon (tekan Enter jika tidak ingin mencari berdasarkan nama): ")
 	fmt.Scan(&nama)
-	
+
 	found := false
 	for _, calon := range calons {
 		if (partai == "" || strings.Contains(calon.Partai, partai)) && (nama == "" || strings.Contains(calon.Nama, nama)) {
@@ -237,7 +237,7 @@ func cariDataCalon() {
 			found = true
 		}
 	}
-	
+
 	if !found {
 		fmt.Println("Calon tidak ditemukan.")
 	}
